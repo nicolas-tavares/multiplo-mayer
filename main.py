@@ -39,7 +39,8 @@ def exibir_grafico(dados, ticker):
 
     canvas = FigureCanvasTkAgg(fig, master=frame_grafico)
     canvas.draw()
-    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+
 
 
 def calcular():
@@ -73,7 +74,7 @@ def calcular():
 janela = tk.Tk()
 janela.title("📈 Múltiplo de Mayer - Bitcoin & IVVB11")
 janela.geometry("800x600")
-janela.resizable(False, False)
+janela.resizable(True, True)
 
 # Título
 titulo = tk.Label(janela, text="Múltiplo de Mayer", font=("Lato", 16, "bold"))
@@ -105,3 +106,11 @@ frame_grafico.pack(fill=tk.BOTH, expand=True, padx=15, pady=10)
 tk.Label(janela, text="⚙️ Desenvolvido por Nicolas Tavares", font=("Open Sans", 9)).pack(side="bottom", pady=5)
 
 janela.mainloop()
+
+def on_resize(event):
+    for widget in frame_grafico.winfo_children():
+        if isinstance(widget, FigureCanvasTkAgg):
+            widget.draw()
+
+janela.bind("<Configure>", on_resize)
+
