@@ -62,8 +62,8 @@ def calcular():
 
     texto_resultado.set(
         f"{ativo}\n"
-        f"Preço atual: R$ {preco:,.2f}\n"
-        f"Média móvel (200 dias): R$ {mm200:,.2f}\n"
+        f"Preço atual: $ {preco:,.2f}\n"
+        f"Média móvel (200 dias): $ {mm200:,.2f}\n"
         f"Múltiplo de Mayer: {mayer:.2f}\n\n"
     )
 
